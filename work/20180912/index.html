@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+<!--		<input type="number" name="demoNum" min="1" max="100" step="2" />-->
+		<form action="#" method="get">
+			<input type="number" name="num1" min="10" max="80" step="5" placeholder="请输入10——80的数字"/><!--输入数字-->
+			<input type="email" name="email"  placeholder="请输入邮箱" /><!--输入邮箱并判断是否为正确格式-->
+			<input type="submit" />
+			<input type="tel" placeholder="请输入电话" name="p" /><!--输入电话-->
+			<input type="submit" />
+			<input type="range" min="0" max="100" step="1" name="rdemo" value="0" /><!--输入滑动条-->
+			<input type="number" />
+			<input type="date" name="day" /><!--日期选择-->
+			<input type="color" name="col" /><!--颜色选择-->
+			<input type="search" name="search" /><!--搜索框-->
+			<input type="submit" />
+			<input type="search" name="gongfu" autocomplete="on" list="names" results />
+				<datalist id="names">
+					<option>亢龙有枚</option>
+					<option>飞龙在天</option>
+					<option>神龙摆尾</option>
+					<option>弹指神通</option>
+				</datalist>
+				<select>
+					<option>亢龙有枚</option>
+					<option>飞龙在天</option>
+					<option>神龙摆尾</option>
+					<option>弹指神通</option>
+				</select>
+			<form id="testform" method="get" action="serve.jsp">
+				<input type="submit" name="s1" value="v1" formaction="s1.jsp"/>
+				<input type="submit" name="s2" value="v2" formmethod="post"/>
+				<input type="submit" name="s3" value="v3" formmethod="get"/>
+			</form>
+			
+			
+		</form>
+	</body>
+</html>
+ 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>form属性示例</title>
+  	<meta charset="UTF-8">
+</head>
+<style type="text/css">
+	.tit{color: red;};
+</style>
+<body>
+	<!--基本信息-->
+	<fieldset style="width: 500px;">
+		<legend class="tit">基本信息</legend>
+		姓名&nbsp;<input type="text" name='nam' placeholder="请输入姓名" /><span class="tit">*</span>
+		<br />
+		年龄&nbsp;<input type="number" name='age' min='1' placeholder="请输入年龄" />
+	</fieldset>
+	<!--邮箱-->
+	<fieldset style="width: 500px;">
+		<legend class="tit">你想在哪里收到邮件？</legend>
+		邮箱&nbsp;<input type="email" name="email" placeholder="请输入邮箱" /><span class="tit">*</span>
+	</fieldset>
+	<!--月收入-->
+	<fieldset style="width: 500px;">
+		<legend class="tit">收入情况</legend>
+		月收入&nbsp;<select id="money">
+				<option>3K+</option>
+				<option>5K+</option>
+				<option>10K+</option>
+				<option>20K+</option>
+			</select>
+		<br />
+		银行卡&nbsp;<input type="text" name="card"/>&nbsp;有效期&nbsp;<input type="date" name="time" />
+	</fieldset>
+	<!--选取文件-->
+	<fieldset style="width: 500px;">
+		<legend class="tit">选取提取文件</legend>
+		<form>
+			文件&nbsp;<input type="file" name="file" multiple="multiple"/>
+		</form>
+	</fieldset>
+	<br />
+	<!--提交按钮-->
+	<input type="submit" />
+</body>
+</html>
+
+
