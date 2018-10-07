@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./img/cloud-icon.png" />
+		<title></title>
+	</head>
+	<body>
+	<script>
+		function ShowFileName()
+		{
+		    var file;
+		    //document.getElementById("file").files返回FileList文件列表对象
+		    for(var i=0;i<document.getElementById("file").files.length;i++)
+		    {
+		        file = document.getElementById("file").files[i];
+		        alert(file.name);
+		    }
+		}
+		function ShowFileType(){
+			for(var i=0;i<document.getElementById("file").files.length;i++){
+				var size = document.getElementById('size');
+		    		size.innerHTML = file.size;
+		   		var type = document.getElementById('type');
+		    		size.innerHTML = file.type;
+		    }
+		}
+	</script>
+	选择文件：
+	<input type="file" id="file" multiple size="80"/>
+	<input type="button" onclick="ShowFileName();" value="文件上传"/>
+	<input type="button" onclick="ShowFileType();" value="显示文件信息"/>
+
+	<br />
+	文件字节长度：<span id='size'></span>
+	<br />
+	文件类型：<span id="type"></span>
+	</body>
+</html>
