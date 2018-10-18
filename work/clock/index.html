@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./img/cloud-icon.png" />
+		<title>canvas</title>
+		<style>
+			#canvas{
+				border:1px solid red;
+			}	
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+		<script>
+
+			//创建绘图容器
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext("2d");
+			//刻度
+			context.translate(300,300);
+			
+			function clock(){
+			context.clearRect(-300,-300,canvas.width,canvas.height);
+			
+			//表圆
+			context.save();
+			context.beginPath();
+			context.arc(0,0,250,0,Math.PI*2,true);
+			context.strokeStyle = "aquamarine";
+			context.lineWidth = 5;
+			context.stroke();
+			context.closePath();
+			
+			
+			
+				//红刻度
+			context.beginPath();
+      		context.fillStyle="red";
+        	context.fillRect(200, -3, 25, 6);
+				//黑刻度      	
+			context.beginPath();
+      		context.fillStyle="black";
+        	context.fillRect(205, -3, 20, 6);	
+        	
+        	for(var j = 1 ; j <= 60 ; j++){
+        		if(j%5 == 0){
+        			context.beginPath();
+   					context.rotate(6/ 180 * Math.PI );
+    				context.fillStyle="red";
+      				context.fillRect(200, -3 , 25, 6);
+        		}else{
+        			context.beginPath();
+   					context.rotate(6/ 180 * Math.PI );
+    				context.fillStyle="black";
+      				context.fillRect(205, -3 , 20, 6);
+      			}
+        	}
+        	
+        	
+        	//中间原点
+			context.save();
+			context.beginPath();
+			context.arc(0,0,8,0,2*Math.PI,true);
+			context.fillStyle = "black";
+			context.fill();
+
+        	//时间数字     	
+        	context.save();
+			context.beginPath();
+			for(var i=1;i<13;i++){
+			var x1=Math.sin(i*2*Math.PI/12);
+			var y1=-Math.cos(i*2*Math.PI/12);
+				context.fillStyle="#red";
+				context.font="bold 20px Calibri";
+				context.textAlign='center';
+				context.textBaseline='middle';
+				context.fillText(i,x1*180,y1*180); 
+			}
+			
+			context.closePath(); 	
+			
+			var time=new Date();
+			var h=time.getHours();
+			var m=time.getMinutes();
+			var s=time.getSeconds();
+			console.log("小时：",h%12);
+			console.log("分钟：",m);
+			console.log("秒：",s);
+			context.clearRect(300,300,canvas.width,canvas.height);
+			//时针
+			context.save();
+			context.rotate( (h*30 + m*30/60 )/180*Math.PI);
+			context.beginPath();
+			context.strokeStyle = "blueviolet";
+			context.lineWidth = 8;
+			context.moveTo(0,0);
+			context.lineTo(0,-130);
+			context.fill();
+			context.stroke();
+			context.restore();
+
+			//分针
+			context.save();
+			context.rotate( (m*6 + s*6/360)/180*Math.PI);
+			context.beginPath();
+			context.strokeStyle = "pink";
+			context.lineWidth = 6;
+			context.moveTo(0,0);
+			context.lineTo(0,-150);
+			context.stroke();
+			context.restore();
+
+			//秒针
+			context.save();
+			context.rotate( (s*6)/180*Math.PI);
+			context.lineWidth = 2;
+			context.moveTo(0,0);
+			context.lineTo(0,-200);
+			context.strokeStyle = "red";
+			context.stroke();
+			context.closePath();
+
+			context.beginPath();
+			context.lineWidth=1;
+			context.arc(0,-170,5,0,2*Math.PI,false);
+			context.fillStyle="red";
+			context.stroke();
+			context.fill();
+			context.closePath();
+			context.beginPath();
+			context.lineWidth=1;
+			context.arc(0,-170,3,0,2*Math.PI,false);
+			context.fillStyle="black";
+			context.stroke();
+			context.fill();
+			context.restore();
+			context.closePath();
+			
+			
+			context.restore();
+			}
+				clock();
+				setInterval(function(){
+					clock();
+				},1000);
+				clearInterval();
+		</script>
+	</body>
+</html>
